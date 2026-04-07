@@ -1,12 +1,18 @@
 import './App.css';
-import app from './firebase';
+import { useEffect } from 'react';
 
 function App() {
-  console.log("Firebase connected:", app);
+
+  useEffect(() => {
+    fetch("https://ai-crisis-backend.onrender.com")
+      .then(res => res.json())
+      .then(data => console.log("Backend response:", data))
+      .catch(err => console.error(err));
+  }, []);
 
   return (
     <div>
-      <h1>Firebase Connected</h1>
+      <h1>Frontend + Backend Connected</h1>
     </div>
   );
 }
